@@ -1,6 +1,8 @@
 // Basic TypeScript => https://www.typescriptlang.org/docs/handbook/2/basic-types.html  
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+//command for compiling >>>>  npx tsc basic.tsx
+
 
 //this is for testing ==========================================
 console.log('This is basic of TypeScript');
@@ -54,6 +56,8 @@ const names = ["Alice", "Bob", "Eve"];
 names.forEach((eachName)=>{
     console.log(eachName.toString())
 })
+
+
 
 
 // Object Types  & Optional Properties (?)
@@ -156,7 +160,31 @@ function compare(a: string, b: string): -1 | 0 | 1 {
 }
 console.log( compare("0", '5') )
 
-
-
-
 // Literal Inference >>> https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
+
+
+// Narrowing ===========================================
+ console.log('Narrowing ============================');
+
+ function leftPadding ( padding: number | string, input: number){
+     if(typeof padding === 'number'){
+         return ' '.repeat( padding ) + input;   // "string".repeat(times) >> repeat the string for given times
+     }
+     return padding + input;
+ }
+
+//  typeof values >> "string" "number" "bigint" "boolean" "symbol" "undefined" "object" "function"
+
+
+function printAll( strs: string | string[] | null ){
+    if( strs && typeof strs === "object"){
+        for( const s of strs){
+            console.log( s )
+        }
+    }
+    else{
+        console.log( strs )
+    }
+}
+
+printAll(["sajib", "Ratin", "Rafin", "Alhadi", "Alamin", "Fahim"])

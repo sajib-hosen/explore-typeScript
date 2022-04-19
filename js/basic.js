@@ -1,12 +1,12 @@
+"use strict";
 // Basic TypeScript => https://www.typescriptlang.org/docs/handbook/2/basic-types.html  
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//command for compiling >>>>  npx tsc basic.tsx
 //this is for testing ==========================================
 console.log('This is basic of TypeScript');
-var nuber1 = 10;
+const nuber1 = 10;
 console.log('the number is', nuber1);
 // Type Annotations on Variables ===============================
-var myName = " Sajib Hosen"; // on declearing string all the string function being avalable to use with it
+const myName = " Sajib Hosen"; // on declearing string all the string function being avalable to use with it
 console.log(myName.toLowerCase());
 console.log(myName.toUpperCase());
 // Parameter Type Annotations ==================================
@@ -22,24 +22,24 @@ console.log(doSum(23, 45));
 // The primitives: string, number, and boolean  => https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // Type Annotations on Variables   
-var myName1 = "Sajib Hosen sajib.201h@gmail.com";
-var myNumber = 307;
-var myBiilian = true;
+const myName1 = "Sajib Hosen sajib.201h@gmail.com";
+const myNumber = 307;
+const myBiilian = true;
 // Parameter Type Annotations 
 function greet(person, date) {
-    console.log("Hello ".concat(person, ", today is ").concat(date.toDateString(), "!"));
+    console.log(`Hello ${person}, today is ${date.toDateString()}!`);
 }
 greet("Maddison", new Date());
 // Return Type Annotations
-var doMultiply = function (firstNumber, secondNumber) {
+const doMultiply = (firstNumber, secondNumber) => {
     return firstNumber * secondNumber;
 };
-var mulOf = doMultiply(50, 23);
+const mulOf = doMultiply(50, 23);
 console.log(mulOf);
 // Anonymous Functions
 // No type annotations here, but TypeScript can spot the bug
-var names = ["Alice", "Bob", "Eve"];
-names.forEach(function (eachName) {
+const names = ["Alice", "Bob", "Eve"];
+names.forEach((eachName) => {
     console.log(eachName.toString());
 });
 // Object Types  & Optional Properties (?)
@@ -78,10 +78,10 @@ function showPersonDetails(person) {
     console.log('person height: ', person.height);
 }
 showPersonDetails({ name: "sajib hosen", age: 19, village: "charipara", height: 5.9 });
-var boysDetails = function (boys) {
+const boysDetails = (boys) => {
     console.log("boys Name: ", boys.name, "Age: ", boys.age, "isMarrige ", boys.isMarrige);
 };
-var newUser = {};
+const newUser = {};
 function printText(s, alignment) {
     console.log(s, alignment);
 }
@@ -91,26 +91,4 @@ function compare(a, b) {
 }
 console.log(compare("0", '5'));
 // Literal Inference >>> https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
-// Narrowing ===========================================
 console.log('Narrowing ============================');
-function leftPadding(padding, input) {
-    if (typeof padding === 'number') {
-        return ' '.repeat(padding) + input; // "string".repeat(times) >> repeat the string for given times
-    }
-    return padding + input;
-}
-//  typeof values >> "string" "number" "bigint" "boolean" "symbol" "undefined" "object" "function"
-function printAll(strs) {
-    if (typeof strs === "object") {
-        if (strs) {
-            for (var _i = 0, strs_1 = strs; _i < strs_1.length; _i++) {
-                var s = strs_1[_i];
-                console.log(s);
-            }
-        }
-    }
-    else {
-        console.log(strs);
-    }
-}
-printAll(["sajib", "Ratin", "Rafin", "Alhadi", "Alamin", "Fahim"]);
